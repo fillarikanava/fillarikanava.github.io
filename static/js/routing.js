@@ -1,6 +1,5 @@
-//@ sourceMappingURL=routing.map
 (function() {
-  var BackControl, DetailsControl, TRANSFORM_MAP, commentMarker, contextmenu, control_layers, create_tile_layer, create_wait_leg, decode_polyline, display_route_result, fillarikanava, find_route, find_route_offline, find_route_otp, find_route_reittiopas, format_code, format_time, google_colors, google_icons, hel_servicemap_unit_url, interpolations, key, layers, map, marker_changed, offline_cleanup, onSourceDragEnd, onTargetDragEnd, osm_notes_url, osmnotes, otp_cleanup, poi_markers, positionMarker, positionMarker2, position_bounds, position_point, previous_positions, reittiopas_url, render_route_buttons, render_route_layer, resize_map, routeLayer, route_to_destination, route_to_service, set_comment_marker, set_source_marker, set_target_marker, sourceCircle, sourceMarker, targetMarker, transform_location, transport_colors, value, vehicles, _ref, _ref1, _ref2;
+  var BackControl, DetailsControl, TRANSFORM_MAP, commentMarker, contextmenu, control_layers, create_tile_layer, create_wait_leg, decode_polyline, display_route_result, fillarikanava, find_route, find_route_offline, find_route_otp, find_route_reittiopas, format_code, format_time, google_colors, google_icons, hel_servicemap_unit_url, interpolations, key, layers, map, marker_changed, offline_cleanup, onSourceDragEnd, onTargetDragEnd, osm_notes_url, otp_cleanup, poi_markers, positionMarker, positionMarker2, position_bounds, position_point, previous_positions, reittiopas_url, render_route_buttons, render_route_layer, resize_map, routeLayer, route_to_destination, route_to_service, set_comment_marker, set_source_marker, set_target_marker, sourceCircle, sourceMarker, targetMarker, transform_location, transport_colors, value, vehicles, _ref, _ref1, _ref2;
 
   map = null;
 
@@ -958,9 +957,7 @@
     layers[key] = create_tile_layer(value);
   }
 
-  layers["cloudmade"].addTo(map);
-
-  osmnotes = new leafletOsmNotes();
+  layers["osm"].addTo(map);
 
   fillarikanava = new leafletFillarikanava();
 
@@ -973,11 +970,8 @@
   }
 
   L.control.layers(control_layers, {
-    "View map errors": osmnotes,
     "Fillarikanava": fillarikanava
   }).addTo(map);
-
-  L.control.scale().addTo(map);
 
   BackControl = L.Control.extend({
     options: {
@@ -1180,4 +1174,10 @@
     };
   });
 
+  fillarikanava.addTo(map);
+
 }).call(this);
+
+/*
+//@ sourceMappingURL=routing.js.map
+*/
